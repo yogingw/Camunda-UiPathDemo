@@ -1,0 +1,16 @@
+﻿{
+    "messageName": "Message_From_Robot",
+    "correlationKeys": {
+        "Form_QueueReference": {
+            "value": "<String_QueueReference>",
+            "type": "String"
+        }
+    },
+    "processVariables": {
+        "Form_Result_Total": {
+            "value": <Int_Total>,
+            "type": "Integer"
+        }
+    },
+    "resultEnabled" : true
+}
