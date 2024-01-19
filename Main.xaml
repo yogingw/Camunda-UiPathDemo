@@ -105,7 +105,7 @@
       <Variable x:TypeArguments="x:Int32" Name="Int_OnUsCheck" />
       <Variable x:TypeArguments="x:Int32" Name="Int_NotOnUsCheck" />
       <Variable x:TypeArguments="x:Int32" Name="Int_Total" />
-      <Variable x:TypeArguments="x:String" Name="String_QueueReference" />
+      <Variable x:TypeArguments="x:String" Name="String_Datetime" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -158,7 +158,7 @@
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
             <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[String_QueueReference]</OutArgument>
+              <OutArgument x:TypeArguments="x:String">[String_Datetime]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">
@@ -284,10 +284,10 @@
                         </ui:AssignOperation>
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
                           <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[String_QueueReference]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String">[String_Datetime]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[Queue_Item.Reference]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[Queue_Item.SpecificContent.Item("Datetime").ToString]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
@@ -539,7 +539,7 @@
                             <OutArgument x:TypeArguments="x:String">[String_BodyJson]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[Regex.Replace(String_BodyJson, "&lt;String_QueueReference&gt;", String_QueueReference).Trim]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[Regex.Replace(String_BodyJson, "&lt;String_Datetime&gt;", String_Datetime).Trim]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
@@ -559,7 +559,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:MultipleAssign>
-                  <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Send Event To Camunda" AuthenticationType="None" Body="[String_BodyJson]" BodyFormat="application/json" DisplayName="Http client" EnableSSLVerification="True" EndPoint="http://localhost:8080/engine-rest/message" sap:VirtualizedContainerService.HintSize="479,101" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" TimeoutMS="6000">
+                  <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" FileAttachments="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseAttachment="{x:Null}" ResponseHeaders="{x:Null}" Result="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" StatusCode="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Send Event To Camunda" AuthenticationType="None" Body="[String_BodyJson]" BodyFormat="application/json" DisplayName="Http client" EnableSSLVerification="True" EndPoint="https://syd-1.connectors.camunda.io/39210920-a3b3-4895-9ff6-80bc083ae1f8/inbound/202fcdbc-4620-4673-a437-be99b631d2d8" sap:VirtualizedContainerService.HintSize="479,101" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" TimeoutMS="6000">
                     <ui:HttpClient.Attachments>
                       <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                     </ui:HttpClient.Attachments>
@@ -568,6 +568,7 @@
                     </ui:HttpClient.Cookies>
                     <ui:HttpClient.Headers>
                       <InArgument x:TypeArguments="x:String" x:Key="Content-Type">application/json</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="Authorization">Bearer d71c2a3f-52be-44c9-90c1-4f796d968666</InArgument>
                     </ui:HttpClient.Headers>
                     <ui:HttpClient.Parameters>
                       <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
